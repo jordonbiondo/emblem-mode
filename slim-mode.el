@@ -1,4 +1,4 @@
-;;; emblem-mode.el --- Major mode for editing Slim files
+;;; emblem-mode.el --- Major mode for editing emblem files
 
 ;; Copyright (c) 2007, 2008 Nathan Weizenbaum
 ;; Copyright (c) 2009-2013 Daniel Mendler
@@ -7,13 +7,13 @@
 ;; Author: Nathan Weizenbaum
 ;; Author: Daniel Mendler
 ;; Author: Bozhidar Batsov
-;; URL: http://github.com/emblem-template/emacs-slim
+;; URL: //TODO
 ;; Version: 1.1
 ;; Keywords: markup, language
 
 ;;; Commentary:
 
-;; Because Slim's indentation schema is similar
+;; Because emblem's indentation schema is similar
 ;; to that of YAML and Python, many indentation-related
 ;; functions are similar to those in yaml-mode and python-mode.
 
@@ -33,12 +33,12 @@
 ;; User definable variables
 
 (defgroup slim nil
-  "Support for the Slim template language."
+  "Support for the emblem template language."
   :group 'languages
   :prefix "emblem-")
 
 (defcustom emblem-mode-hook nil
-  "Hook run when entering Slim mode."
+  "Hook run when entering emblem mode."
   :type 'hook
   :group 'slim)
 
@@ -68,7 +68,7 @@ if the next line could be nested within this line.")
     "^ *|"
     "^ */"
     "^ *[a-z0-9_]:")
-  "A list of regexps that match lines of Slim that could have
+  "A list of regexps that match lines of emblem that could have
 text nested beneath them.")
 
 ;; Font lock
@@ -196,8 +196,8 @@ text nested beneath them.")
   (if (fboundp 'prog-mode) 'prog-mode 'fundamental-mode))
 
 ;;;###autoload
-(define-derived-mode emblem-mode emblem-parent-mode "Slim"
-  "Major mode for editing Slim files.
+(define-derived-mode emblem-mode emblem-parent-mode "emblem"
+  "Major mode for editing emblem files.
 
 \\{emblem-mode-map}"
   (set-syntax-table emblem-mode-syntax-table)
@@ -214,7 +214,7 @@ text nested beneath them.")
 ;; Useful functions
 
 (defun emblem-comment-block ()
-  "Comment the current block of Slim code."
+  "Comment the current block of emblem code."
   (interactive)
   (save-excursion
     (let ((indent (current-indentation)))
@@ -227,7 +227,7 @@ text nested beneath them.")
       (emblem-reindent-region-by emblem-indent-offset))))
 
 (defun emblem-uncomment-block ()
-  "Uncomment the current block of Slim code."
+  "Uncomment the current block of emblem code."
   (interactive)
   (save-excursion
     (beginning-of-line)
@@ -265,7 +265,7 @@ character."
 With `arg', do it that many times.  Negative arg -N means move
 backward across N balanced expressions.
 
-A sexp in Slim is defined as a line of Slim code as well as any
+A sexp in emblem is defined as a line of emblem code as well as any
 lines nested beneath it."
   (interactive "p")
   (or arg (setq arg 1))
@@ -285,7 +285,7 @@ lines nested beneath it."
 With ARG, do it that many times.  Negative arg -N means move
 forward across N balanced expressions.
 
-A sexp in Slim is defined as a line of Slim code as well as any
+A sexp in emblem is defined as a line of emblem code as well as any
 lines nested beneath it."
   (interactive "p")
   (emblem-forward-sexp (if arg (- arg) -1)))
@@ -319,12 +319,12 @@ With ARG, do this that many times."
   (back-to-indentation))
 
 (defun emblem-mark-sexp ()
-  "Marks the next Slim block."
+  "Marks the next emblem block."
   (let ((forward-sexp-function 'emblem-forward-sexp))
     (mark-sexp)))
 
 (defun emblem-mark-sexp-but-not-next-line ()
-  "Marks the next Slim block, but puts the mark at the end of the
+  "Marks the next emblem block, but puts the mark at the end of the
 last line of the sexp rather than the first non-whitespace
 character of the next line."
   (emblem-mark-sexp)
