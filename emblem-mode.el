@@ -63,7 +63,7 @@ if the next line could be nested within this line.")
 (defvar emblem-block-openers
   `("^ *\\([\\.#a-z][^ \t]*\\)\\(\\[.*\\]\\)?"
     "^ *[-=].*do[ \t]*\\(|.*|[ \t]*\\)?$"
-    ,(concat "^ *-[ \t]*\\("
+    ,(concat "^ *\\(-\\|=\\)?[ \t]*\\("
              (regexp-opt '("if" "unless" "while" "until" "else"
                            "begin" "elsif" "rescue" "ensure" "when"))
              "\\)")
@@ -141,7 +141,7 @@ text nested beneath them.")
     ("^\\(doctype .*$\\)"
      1 font-lock-preprocessor-face)
     ;; ==', =', -
-    ("^ *\\(==?'?\\|-\\)"
+    ("^ *\\(==?'?\\|-\\)*"
       (1 font-lock-preprocessor-face)
       (,(regexp-opt
          '("if" "else" "elsif" "for" "in" "do" "unless"
