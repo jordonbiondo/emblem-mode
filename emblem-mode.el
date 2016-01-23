@@ -3,11 +3,13 @@
 ;; Copyright (c) 2007, 2008 Nathan Weizenbaum
 ;; Copyright (c) 2009-2013 Daniel Mendler
 ;; Copyright (c) 2012-2014 Bozhidar Batsov
+;; Copyright (c) 2016 Jordon Biondo
 
 ;; Author: Nathan Weizenbaum
 ;; Author: Daniel Mendler
 ;; Author: Bozhidar Batsov
-;; URL: //TODO
+;; Author: Jordon Biondo
+;; URL: https://github.com/jordonbiondo/emblem-mode
 ;; Version: 1.1
 ;; Keywords: markup, language
 
