@@ -32,7 +32,7 @@
 
 ;; User definable variables
 
-(defgroup slim nil
+(defgroup emblem nil
   "Support for the emblem template language."
   :group 'languages
   :prefix "emblem-")
@@ -40,19 +40,19 @@
 (defcustom emblem-mode-hook nil
   "Hook run when entering emblem mode."
   :type 'hook
-  :group 'slim)
+  :group 'emblem)
 
 (defcustom emblem-indent-offset 2
   "Amount of offset per level of indentation."
   :type 'integer
-  :group 'slim)
+  :group 'emblem)
 
 (defcustom emblem-backspace-backdents-nesting t
   "Non-nil to have `emblem-electric-backspace' re-indent all code
 nested beneath the backspaced line be re-indented along with the
 line itself."
   :type 'boolean
-  :group 'slim)
+  :group 'emblem)
 
 (defvar emblem-indent-function 'emblem-indent-p
   "This function should look at the current line and return true
@@ -456,7 +456,7 @@ the current line."
   (mapconcat 'identity (make-list emblem-indent-offset " ") ""))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.slim\\'" . emblem-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(em\\|emblem\\|embl\\)\\'" . emblem-mode))
 
 ;; Setup/Activation
 (provide 'emblem-mode)
