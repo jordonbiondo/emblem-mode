@@ -39,11 +39,6 @@
   :group 'languages
   :prefix "emblem-")
 
-(defcustom emblem-mode-hook nil
-  "Hook run when entering emblem mode."
-  :type 'hook
-  :group 'emblem)
-
 (defcustom emblem-indent-offset 2
   "Amount of offset per level of indentation."
   :type 'integer
